@@ -1,65 +1,30 @@
 import axios from 'axios';
 
 const API_KEY = '045f57dbd430f06c0657f97d020f0d53';
-axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
 
-export const getTrendingMovies = () => {
-  axios
-    .get('trending/movie/day?', {
-      params: {
-        api_key: API_KEY,
-      },
-    })
-    .then(({ data }) => {
-      console.log(data.results);
-    });
+axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
+axios.defaults.params = {
+  api_key: API_KEY,
 };
 
-export const getSearchMovie = movieName => {
-  axios
-    .get('search/movie?', {
-      params: {
-        api_key: API_KEY,
-        query: movieName,
-      },
-    })
-    .then(({ data }) => {
-      console.log(data.results);
-    });
+export const getTrendingMovies = () => {
+  return axios.get(`trending/movie/day`).then(({ data }) => data.results);
 };
 
 export const getMovieDetails = id => {
-  axios
-    .get(`movie/${id}?`, {
-      params: {
-        api_key: API_KEY,
-      },
-    })
-    .then(({ data }) => {
-      console.log(data);
-    });
+  return axios.get(`movie/${id}`).then(({ data }) => data);
+};
+
+export const getSearchMovie = query => {
+  return axios
+    .get(`search/movie?query=${query}`)
+    .then(({ data }) => data.results);
 };
 
 export const getMovieActors = id => {
-  axios
-    .get(`movie/${id}/credits?`, {
-      params: {
-        api_key: API_KEY,
-      },
-    })
-    .then(({ data }) => {
-      console.log(data.cast);
-    });
+  return axios.get(`movie/${id}/credits`).then(({ data }) => data.cast);
 };
 
 export const getMovieReviews = id => {
-  axios
-    .get(`movie/${id}/reviews`, {
-      params: {
-        api_key: API_KEY,
-      },
-    })
-    .then(({ data }) => {
-      console.log(data.results);
-    });
+  return axios.get(`movie/${id}/reviews`).then(({ data }) => data.results);
 };
