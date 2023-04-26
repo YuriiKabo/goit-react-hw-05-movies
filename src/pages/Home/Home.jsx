@@ -1,4 +1,4 @@
-import { getTrendingMovies } from 'services/api';
+import { getTrendingMovies } from 'Services/API';
 import { useEffect, useState } from 'react';
 import { Loader } from '../../components/Loader';
 import NotFound from '../NotFound';

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams, useLocation } from 'react-router-dom';
-import { getSearchMovie } from '../../services/api';
+import { getSearchMovie } from 'Services/API';
 import { StyledLi, StyledLink, StyledUl, StyledHeader } from './Movies.styled';
 import { Loader } from 'components/Loader';
 import NotFound from 'pages/NotFound';

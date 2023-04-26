@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getMovieActors } from 'services/api';
+import { getMovieActors } from 'Services/API';
 import { Loader } from 'components/Loader';
 import NotFound from 'pages/NotFound';
 import { StyledActorUl, StyledLi } from './Cast.styled';
