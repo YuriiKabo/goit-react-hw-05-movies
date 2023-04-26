@@ -26,6 +26,7 @@ const Reviews = () => {
         setIsLoading(false);
       });
   }, [movieId]);
+
   return (
     <>
       {isLoading && <Loader />}
