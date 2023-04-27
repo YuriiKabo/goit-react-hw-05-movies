@@ -5,7 +5,6 @@ import {
   StyledActorUl,
   StyledLi,
   StyledLink,
-  StyledUl,
   StyledHeader,
 } from './Movies.styled';
 import imgNotFound from 'images/imgNotFound.jpg';
