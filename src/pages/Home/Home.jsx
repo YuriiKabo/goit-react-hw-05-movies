@@ -66,6 +66,7 @@ export default Home;
 Home.propTypes = {
   movie: PropTypes.arrayOf(
     PropTypes.shape({
+      poster_path: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
       id: PropTypes.number.isRequired,
     }).isRequired
