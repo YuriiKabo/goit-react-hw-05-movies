@@ -1,8 +1,16 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams, useLocation } from 'react-router-dom';
 import { getSearchMovie } from 'Services/API';
-import { StyledLi, StyledLink, StyledUl, StyledHeader } from './Movies.styled';
+import {
+  StyledActorUl,
+  StyledLi,
+  StyledLink,
+  StyledUl,
+  StyledHeader,
+} from './Movies.styled';
+import imgNotFound from 'images/imgNotFound.jpg';
 import { Loader } from 'components/Loader';
+
 import NotFound from 'pages/NotFound';
 import PropTypes from 'prop-types';
 
@@ -53,17 +61,27 @@ const Movies = () => {
       </form>
       {movies && (
         <div>
-          <StyledUl>
-            {movies.map(({ id, original_title }) => {
+          <StyledActorUl className="actors">
+            {movies.map(({ id, original_title, poster_path }) => {
               return (
                 <StyledLi key={id}>
                   <StyledLink to={`${id}`} state={{ from: location }}>
-                    {original_title}
+                    {poster_path && (
+                      <img
+                        src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+                        alt={original_title}
+                        width="200"
+                      />
+                    )}
+                    {!poster_path && (
+                      <img src={imgNotFound} alt={original_title} width="200" />
+                    )}
+                    <h3> {original_title}</h3>
                   </StyledLink>
                 </StyledLi>
               );
             })}
-          </StyledUl>
+          </StyledActorUl>
         </div>
       )}
       {isError && <NotFound />}

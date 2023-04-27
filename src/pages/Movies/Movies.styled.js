@@ -25,3 +25,9 @@ export const StyledHeader = styled.h3`
   font-size: 30;
   justify-content: center;
 `;
+export const StyledActorUl = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 1em;
+`;
